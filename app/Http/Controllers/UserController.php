@@ -36,14 +36,12 @@ class UserController extends BaseController
             return $this->responseError('Wrong email or password', 401);
         }
     }
-//  register2 belum mau, task => insert into 2 table using 1 functions and make one to one relation
-//  UI belum selesai
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
 
         if ($validator->fails()) {
@@ -110,10 +108,11 @@ class UserController extends BaseController
         }
     }
 
-    public function profile($id)
+    public function profile(Request $request)
     {
-        $users = User::find($id);
-        return $this->responseOk($users->contact());
+        $phone = contact::first();
+        $phone->user;
+        return $this->responseOk($phone);
     }
     public function destroy($id)
     {
@@ -123,14 +122,11 @@ class UserController extends BaseController
     }
     public function update(Request $request, $id)
     {
-        $book = Book::find($id);
-        $book->title = $request->title;
-        $book->author = $request->author;
-        $book->publication = $request->publication;
-        $book->year = $request->year;
-        $book->update();
+        $contact = contact::find($id);
+        $contact->nick_name = $request->nick_name;
+        $contact->update();
 
-        return $book;
+        return $contact;
     }
     public function logout(Request $request)
     {

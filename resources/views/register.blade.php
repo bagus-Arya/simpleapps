@@ -64,35 +64,13 @@
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <label for="inputEmail" class="sr-only">Nickname</label>
-                        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Masukan Email" required autofocus>
+                        <label for="inputName" class="sr-only">Nickname</label>
+                        <input type="name" name="name" id="inputName" class="form-control" placeholder="Masukan Username" required autofocus>
                     </div>
                     <div class="col">
-                        <label for="inputEmail" class="sr-only">Fullname</label>
-                        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Masukan Email" required autofocus>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col">
-                        <label for="inputEmail" class="sr-only">Nickname</label>
-                        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Masukan Email" required autofocus>
-                    </div>
-                    <div class="col">
-                        <label for="inputEmail" class="sr-only">Fullname</label>
-                        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Masukan Email" required autofocus>
-                    </div>
-                </div> 
-                <div class="form-group">
-                    <label for="inputEmail" class="sr-only">Address</label>
-                    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Masukan Email" required autofocus>
-                </div>
-                <div class="form-group">
-                    <label for="inputEmail" class="sr-only">Email Anda</label>
-                    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Masukan Email" required autofocus>
-                </div>
-                <div class="form-group">
                     <label for="typePassword" class="sr-only">Password</label>
                     <input type="password" name="password" id="typePassword" class="form-control" placeholder="Masukan Password" required>
+                    </div>
                 </div>
                 <hr>
                 <div class="form-group">
