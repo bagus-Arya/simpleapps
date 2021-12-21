@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
+use Redirect;
 use Validator;
 use Auth;
 use Hash;
@@ -25,22 +26,22 @@ class UserController extends BaseController
 
         if (Auth::attempt(['name' => $request->name, 'password' => $request->password])) {
             $user = Auth::user();
-            
-            $response = [
-                'token' => $user->createToken('MyToken')->accessToken,
-                'name' => $user->name,
-            ];
-
-            return $this->responseOk($response);
+            $user_name = $user->name;
+            // $response = [
+            //     'token' => $user->createToken('MyToken')->accessToken,
+            //     'id' => $user->id,
+            //     'name' => $user->name,
+            // ];
+            return view('home', ['name' => $user_name]);
         } else {
-            return $this->responseError('Wrong email or password', 401);
+            return Redirect::to('/');
         }
     }
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
-            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
         ]);
 
@@ -50,7 +51,7 @@ class UserController extends BaseController
 
         $params = [
             'name' => $request->name,
-            // 'email' => $request->email,
+            'email' => $request->email,
             'password' => Hash::make($request->password),
         ];
 
@@ -77,7 +78,6 @@ class UserController extends BaseController
             'birthdate' => ['required', 'string', 'max:255'],
             'gender' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
         ]);
 
         if ($validator->fails()) {
@@ -108,11 +108,10 @@ class UserController extends BaseController
         }
     }
 
-    public function profile(Request $request)
+    public function profile($id)
     {
-        $phone = contact::first();
-        $phone->user;
-        return $this->responseOk($phone);
+        $user = Auth::user($id);
+        return view('home')->with($user);
     }
     public function destroy($id)
     {

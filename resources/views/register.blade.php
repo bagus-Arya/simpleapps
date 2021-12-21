@@ -68,6 +68,10 @@
                         <input type="name" name="name" id="inputName" class="form-control" placeholder="Masukan Username" required autofocus>
                     </div>
                     <div class="col">
+                    <label for="typeEmail" class="sr-only">Email</label>
+                    <input type="email" name="email" id="typeEmail" class="form-control" placeholder="Masukan Email" required>
+                    </div>
+                    <div class="col">
                     <label for="typePassword" class="sr-only">Password</label>
                     <input type="password" name="password" id="typePassword" class="form-control" placeholder="Masukan Password" required>
                     </div>

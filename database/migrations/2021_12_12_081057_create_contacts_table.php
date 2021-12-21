@@ -22,7 +22,6 @@ class CreateContactsTable extends Migration
             $table->string('birthdate');
             $table->string('gender');
             $table->text('address');
-            $table->string('email');
             $table->timestamps();
         });
     }

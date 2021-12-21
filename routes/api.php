@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ForgotPasswordController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,14 +14,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('register', 'UserController@register');
-Route::post('add', 'UserController@addcontact');
-Route::post('login', 'UserController@login');
-Route::get('list', 'UserController@lists');
-Route::post('destroy/{id}', 'UserController@destroy');
-Route::post('forgot-password', 'ForgotPasswordController@forgot'); // belum mau
+Route::post('/register', [UserController::class, 'register']);
+Route::post('/add', [UserController::class, 'addcontact']);
+Route::post('/login', [UserController::class, 'login']);
+Route::put('/contact/{id}', [UserController::class, 'updates']);
+Route::post('/destroy/{id}', [UserController::class, 'destroy']);
+Route::post('/forgot-password', [ForgotPasswordController::class, 'forgot']);
 
-Route::middleware('auth:api')->group(function () {
-    Route::get('profile', 'UserController@profile');
-    Route::get('logout', 'UserController@logout');
+Route::middleware('auth:api', 'throttle:60,1')->group(function () {
+    Route::get('/home', [UserController::class, 'profile']);
+    Route::get('/logout', 'UserController@logout');
 });

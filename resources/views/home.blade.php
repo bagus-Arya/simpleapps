@@ -1,8 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+<head>
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -51,42 +51,43 @@
             background-color:#311D3F;
             color:#FFF;
         }
-
     </style>
-  </head>
-  <body>
-  <form class="form-container" action="http://localhost:8000/api/forgot-password" method="POST">
-  <div class="card mx-auto" style="width: 50rem;">
+</head>
+<body>
+<div class="card mx-auto" style="width: 60rem;">
+    <div class="card-body">
+    <center>
+        <h1>Wellcome {{$name}}</h1>
+        <p>Nickname | Fullname | Gender | Email | Birthdate</p>
+    </center>
+    <form action="#" method="POST" class="form-signin">
+    <div class="card mx-auto" style="width: 50rem;">
         <div class="card-body">
-            <h5 class="mb-3 font-weight-normal" style="text-align:center;">Forgot Password?</h5>
-            <div class="form-group">
-                    Sudah Memiliki Akun? <a href="/">Masuk</a>
+            <h5 class="mb-3 font-weight-normal" style="text-align:center;">Lengkapi Kontak</h5>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="inputName" class="sr-only">Nickname</label>
+                        <input type="name" name="name" id="inputName" class="form-control" placeholder="Masukan Username" required autofocus>
+                    </div>
+                    <div class="col">
+                    <label for="typePassword" class="sr-only">Password</label>
+                    <input type="password" name="password" id="typePassword" class="form-control" placeholder="Masukan Password" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="inputEmail" class="sr-only">Email</label>
-                    <input name="email" placeholder="Enter email" class="form-control" value="{{request()->get('email')}}">
-                </div>
-                <div class="form-group">
-                    <label for="inputEmail" class="sr-only">Password</label>
-                    <input name="password" class="form-control" placeholder="Enter new password">
-                </div>
-                <div class="form-group">
-                    <label for="typePassword" class="sr-only">Password COnfirmation</label>
-                    <input name="password_confirmation" class="form-control" placeholder="Confirm new password">
-                </div>
-                <input hidden name="token" placeholder="token" value="{{request()->get('token')}}">
                 <hr>
                 <div class="form-group">
-                    <button class="button-29" type="submit">Submit</button>
+                    <button class="button-29" type="submit">Daftar</button>
                 </div>
             </div>
         </div>
     </form>
+    </div>
+</div>
 
-    <!-- Optional JavaScript -->
+  <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>

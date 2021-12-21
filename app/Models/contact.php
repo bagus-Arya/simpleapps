@@ -11,7 +11,7 @@ class contact extends Model
 {
     use Notifiable,HasApiTokens;
     protected $fillable = [
-        'user_id', 'nick_name', 'fullname', 'birthdate', 'gender', 'address', 'email',
+        'user_id', 'nick_name', 'fullname', 'birthdate', 'gender', 'address',
     ];
     public function user(){
         return $this->belongsTo(user::class);
