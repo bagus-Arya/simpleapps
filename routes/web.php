@@ -20,4 +20,8 @@ Route::get('/register', function () {
 Route::get('/forgotpaswords', function () {
     return view('resetpassword');
 });
+Route::get('/list', function () {
+    return view('list');
+});
+
 
